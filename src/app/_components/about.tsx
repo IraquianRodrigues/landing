@@ -57,7 +57,7 @@ export function About(){
                 </ul>
 
                 <a href="#"
-                className="bg-[#fbd404]"
+                className="bg-green-500 text-white font-semibold flex items-center justify-center w-fit gap-2 px-4 py-2 rounded-sm"
                 >
                     <WhatsappLogo className="w-5 h-5 text-white"/>
                     Contato via WhatsApp

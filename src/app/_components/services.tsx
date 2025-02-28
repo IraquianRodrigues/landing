@@ -1,6 +1,6 @@
 "use client"
 import useEmblaCarousel from "embla-carousel-react"
-import { ChevronLeft, ChevronRight, Scissors, Syringe,CarTaxiFront, Hotel } from "lucide-react"
+import { ChevronLeft, ChevronRight, Scissors, Syringe,CarTaxiFront, Hotel, Clock } from "lucide-react"
 import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr"
 import { start } from "repl"
 
@@ -50,6 +50,15 @@ export function Services(){
       }
     })
 
+    //função de passar o carrosel com o icone da "seta"
+    function scrollPrev(){
+      embleApi?.scrollPrev()
+    }
+
+    function scrollNext(){
+      embleApi?.scrollNext()
+    }
+
     return(
         <section className="bg-white py-16">
             <div className="container mx-auto px-4">
@@ -75,7 +84,19 @@ export function Services(){
                                
                                 </div>
 
-                                <div></div>
+                                <div className="border-t border-gray-700 pt-4 flex items-center justify-between">
+                                  <div className="flex items-center gap-2 texte-sm">
+                                    <Clock className= 'w-4 h-4'/>
+                                    <span>{item.duration}</span>
+                                  </div>
+
+                                  <a href="#"
+                                  className="flex items-center justify-center hover:bg-red-500 gap-2 px-4 py-1 rounded-md duration-300">
+                                    Entrar em contato
+                                    <WhatsappLogo className="h-5 w-5"/>
+                                  </a>
+                               
+                                </div>
 
                               </article>
                             </div>
@@ -83,6 +104,16 @@ export function Services(){
                         </div>
                         
                       </div>
+
+                      <button onClick={scrollPrev} className=" bg-white flex items-center justify-center rounded-full shadow-lg h-10 w-10 absolute left-3 -translate-y-1/2 -translate-x-1/2 top-1/2 z-10">
+                        <ChevronLeft 
+                        className="w-6 h-6 text-gray-600"/>
+                      </button>
+
+                      <button onClick={scrollNext} className=" bg-white flex items-center justify-center rounded-full shadow-lg h-10 w-10 absolute -right-6 -translate-y-1/2 -translate-x-1/2 top-1/2 z-10">
+                        <ChevronRight 
+                        className="w-6 h-6 text-gray-600"/>
+                      </button>
 
                     </div>
                
